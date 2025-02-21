@@ -1,0 +1,37 @@
+{% extends "layout.html" %} 
+
+{% block content %}
+<div class="mb-4 d-flex justify-content-between">
+    <div>
+        <a href="{% url "home" %}" class="btn btn-outline-secondary" role="button">Back</a>
+        <a href="{% url "edit-record" record.id %}" class="btn btn-outline-secondary" role="button">Edit</a>
+    </div>
+    <div>
+        <a href="{% url "delete-record" record.id %}" class="btn btn-outline-danger" role="button">Delete</a>
+    </div>
+</div>
+
+<div class="card border-secondary bg-dark">
+    <h5 class="card-header">{{record.first_name}} {{record.last_name}} 👤</h5>
+    <div class="card-body">
+        <h6 class="card-title">Address : {{record.address}}</h6>
+        <h6 class="card-title">Phone : {{record.phone}}</h6>
+        <h6 class="card-title">City : {{record.city}}</h6>
+        <h6 class="card-title">State : {{record.state}}</h6>
+        <h6 class="card-title">Zipcode : {{record.zipcode}}</h6>
+        <hr>
+        <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus aliquid error perferendis quaerat! Libero debitis optio, iste odit corporis sit. Omnis molestiae id illo ut nemo reprehenderit obcaecati possimus sint. Nostrum quisquam tenetur odio. Tempore vero ad maiores aliquam ab explicabo tenetur, quod quidem possimus nisi quisquam eius atque cupiditate aliquid natus! Dolores assumenda asperiores consequatur aliquid culpa, numquam qui blanditiis nesciunt sunt fuga exercitationem error ut ducimus laudantium illum impedit cum non magnam dolorum deserunt voluptatem necessitatibus in excepturi molestias. Nesciunt dolor minima voluptate commodi quam similique ab repellat magni, itaque sequi aut adipisci voluptas ducimus inventore. Aspernatur, exercitationem.
+
+            <br>
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente commodi nostrum ea, quas nesciunt rerum rem porro exercitationem. Corrupti, molestias? Quo voluptate est rem fugit!
+
+            <br>
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores beatae eos quas architecto adipisci sapiente incidunt aliquid fugit, eum atque cum voluptate magnam. Sint saepe maiores reiciendis libero exercitationem maxime, quas fuga magni nam quisquam provident in, consequuntur quos harum facere ut, tempora laboriosam. Suscipit sint accusamus illo eos ea, possimus, eum vel, delectus nulla commodi voluptates qui accusantium voluptate quia provident aut dolor omnis rem ad dolore. Provident, repellat inventore. Officia beatae quas voluptatum?
+        </p>
+    </div>
+</div>
+
+{% endblock %}

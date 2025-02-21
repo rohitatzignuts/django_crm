@@ -1,0 +1,13 @@
+{% extends "layout.html" %} 
+{% block content %} 
+    <div>
+        <p class="h2">Edit Record 🛠️...</p>
+    </div>
+    <div>
+        <form action="" method="post">
+            {% csrf_token %} 
+            {{ editRecordForm.as_p }}
+            <button type="submit" class="btn btn-outline-secondary">Edit</button>
+        </form>
+    </div>
+{% endblock %}

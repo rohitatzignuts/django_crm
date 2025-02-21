@@ -1,0 +1,63 @@
+{% extends "layout.html" %} 
+{% block content %} 
+    {% if user.is_authenticated %}
+        <div class="d-flex justify-content-between">
+            <p class="h2">Here's yo Data 🤘...</p>
+            <div>
+                <a href="{% url "add-record" %}" class="btn btn-outline-secondary" role="button">Add Record</a>
+            </div>
+        </div>
+        {% if records %}
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for record in records %}
+                    <tr onclick="window.location='{% url 'indi-record' record.id %}';" style="cursor: pointer;">
+                        <td>{{ record.first_name }} {{ record.last_name }}</td>
+                        <td>{{ record.address }}</td>
+                        <td>{{ record.phone }}</td>
+                        <td>{{ record.city }}</td>
+                        <td>{{ record.state }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% else %}
+        <div>
+            <p class="h2">Login first bro...</p>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputUsername" class="form-label">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    id="exampleInputUsername"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    required
+                />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    {% endif %} 
+{% endblock %}
